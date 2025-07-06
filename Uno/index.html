@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>UNO Game</title>
+    <script src="https://cdn.tailwindcss.com "></script>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="bg-gray-900 text-white min-h-screen flex flex-col">
+    <header class="py-4 px-6 bg-gray-800">
+        <div class="flex justify-between items-center">
+            <h1 class="text-3xl font-bold uno-logo">UNO</h1>
+            <div id="game-status" class="text-xl font-semibold">Game is starting...</div>
+        </div>
+    </header>
+
+    <main class="flex-1 flex flex-col items-center justify-between p-4">
+        <!-- Opponent's hand -->
+        <div id="opponent-hand" class="flex flex-wrap justify-center gap-2 max-w-4xl">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/1edfa6e4-16b8-42fe-ae96-5d5091c63ad8.png " alt="Back of UNO card showing logo" class="h-[120px] w-[80px] rounded-lg" />
+        </div>
+
+        <!-- Game board -->
+        <div class="flex flex-col items-center my-8">
+            <div class="flex items-center justify-center gap-8 mb-4">
+                <!-- Draw pile -->
+                <div id="draw-pile" class="relative">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6d3b9cf2-cf66-437c-b198-d137e30e2d0b.png " alt="Draw pile of UNO cards showing backs" 
+                         class="h-[120px] w-[80px] rounded-lg shadow-lg cursor-pointer hover:shadow-xl transition-shadow" />
+                    <div class="absolute -bottom-6 w-full text-center text-sm">Draw</div>
+                </div>
+                <!-- Discard pile -->
+                <div id="discard-pile" class="relative">
+                    <div id="top-card" class="h-[120px] w-[80px] rounded-lg shadow-lg flex items-center justify-center text-white font-bold text-xl"></div>
+                    <div class="absolute -bottom-6 w-full text-center text-sm">Discard</div>
+                </div>
+            </div>
+            <div id="current-color" class="h-12 w-12 rounded-full border-2 border-white mt-2 mb-4"></div>
+            <div id="game-message" class="text-xl font-semibold h-8"></div>
+        </div>
+
+        <!-- Player's hand -->
+        <div id="player-hand" class="flex flex-wrap justify-center gap-2 max-w-4xl"></div>
+    </main>
+
+    <!-- Control buttons -->
+    <div class="p-4 bg-gray-800 flex justify-center gap-4">
+        <button id="draw-card-btn" class="px-4 py-2 bg-gray-700 rounded hover:bg-gray-600 transition">Draw Card</button>
+        <button id="uno-btn" class="px-4 py-2 bg-yellow-500 rounded hover:bg-yellow-600 transition hidden">UNO!</button>
+        <button id="pass-btn" class="px-4 py-2 bg-gray-700 rounded hover:bg-gray-600 transition">Pass</button>
+        <button id="restart-btn" class="px-4 py-2 bg-red-500 rounded hover:bg-red-600 transition">Restart</button>
+    </div>
+
+    <!-- Setup modal -->
+    <div id="setup-modal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center">
+        <div class="bg-gray-800 p-6 rounded-lg w-full max-w-md">
+            <h2 class="text-2xl font-bold mb-4">Game Setup</h2>
+            <div class="mb-4">
+                <label for="player-count" class="block mb-2">Number of Players:</label>
+                <select id="player-count" class="w-full p-2 bg-gray-700 rounded">
+                    <option value="2">2 Players</option>
+                    <option value="3">3 Players</option>
+                    <option value="4">4 Players</option>
+                </select>
+            </div>
+            <div class="flex flex-col gap-2" id="player-names"></div>
+            <button id="start-game-btn" class="w-full mt-4 py-2 bg-green-500 hover:bg-green-600 rounded transition">Start Game</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

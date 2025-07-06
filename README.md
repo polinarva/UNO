@@ -20,7 +20,7 @@ TailwindCSS (через CDN)
 Vanilla JavaScript
 Анимации с использованием @keyframes
 Как запустить
-1. git clone https://github.com/ ваше-имя/unо-game.git
+1. git clone 
 cd uno-game
 2. Откройте файл в браузере:
 Откройте index.html
